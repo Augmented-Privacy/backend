@@ -28,5 +28,6 @@ public class TransactionGenerator {
     private final List<String> TANKEN = Arrays.asList(new String[]{});
     private final List<String> HORECA = Arrays.asList(new String[]{});
     private final List<String> SPAREN = Arrays.asList(new String[]{});
+    private final List<String> LEESMATERIAAL = Arrays.asList(new String[]{});
 
 }
