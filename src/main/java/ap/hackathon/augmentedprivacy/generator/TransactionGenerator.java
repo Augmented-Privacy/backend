@@ -18,16 +18,16 @@ public class TransactionGenerator {
     private final List<String> TELECOMBEDRIJVEN = Arrays.asList(new String[]{});
     private final List<String> NUTSBEDRIJVEN = Arrays.asList(new String[]{});
     private final List<String> FAMILIELEDEN = Arrays.asList(new String[]{});
-    private final List<String> HUUR = Arrays.asList(new String[]{});
-    private final List<String> HYPOTHEEKAFSCHRIJVINGEN = Arrays.asList(new String[]{});
-    private final List<String> BELASTINGEN = Arrays.asList(new String[]{});
-    private final List<String> GOEDE_DOELEN = Arrays.asList(new String[]{});
-    private final List<String> ELEKTRONICA_WINKELS = Arrays.asList(new String[]{});
-    private final List<String> BABY_ARTIKELEN = Arrays.asList(new String[]{});
-    private final List<String> SPORT_ARTIKELEN = Arrays.asList(new String[]{});
-    private final List<String> TANKEN = Arrays.asList(new String[]{});
-    private final List<String> HORECA = Arrays.asList(new String[]{});
-    private final List<String> SPAREN = Arrays.asList(new String[]{});
-    private final List<String> LEESMATERIAAL = Arrays.asList(new String[]{});
+    private final List<String> HUUR = Arrays.asList("Huur","Servicekosten huur","Contributie woningbouwvereniging","Boeteheffing","Achterstallige huur","Rente over achterstallige huur");
+    private final List<String> HYPOTHEEKAFSCHRIJVINGEN = Arrays.asList("Afschrijving hypotheek","Premie hypotheek","Bijdrage VvE","Extra storting hypotheek","Extra aflossing hypotheek");
+    private final List<String> BELASTINGEN = Arrays.asList("Gemeentebelasting","Hondenbelasting","Wegenbelasting","Boete voor te hard rijden","Inkomstenbelasting","Kansspelbelasting","Erfbelasting");
+    private final List<String> GOEDE_DOELEN = Arrays.asList("Dierenambulance","Stichting DOEN","Unicef","Oxfam Novib","Natuurmonumenten","KWF Kankerfonds","Hersenstichting","Plan","Cordaid","Artsen zonder grenzen");
+    private final List<String> ELEKTRONICA_WINKELS = Arrays.asList("BCC","Expert","Media Markt","CoolBlue","Krefel","Eldi","Excellent","Maxwell");
+    private final List<String> BABY_ARTIKELEN = Arrays.asList("Prenatal","Baby-Dump","BabyPark","Bambino","MamaLoes","babyartikelen.nl","bayuitzetonline.nl");
+    private final List<String> SPORT_ARTIKELEN = Arrays.asList("Sportwereld","Decathlon","SportKnaller","Sport Wereld","Perry Sport","Sportartikelen.nl","Adidas Flagship");
+    private final List<String> TANKEN = Arrays.asList("ESSO","SHELL","Texaco","TinQ","Q8","Den Witten Pomp Bierbeek","Garage Scherpenzeel");
+    private final List<String> HORECA = Arrays.asList("Cafe het knalletje","Family Kitchen","Garden Cafe","Hotel de Zeurpiet","Frituur den nonkel","'t Schuurtje","Discotheek ZOMG","Pannenkoekenhuis PlatZak");
+    private final List<String> SPAREN = Arrays.asList("Spaarrekening gezamelijk","Spaardoel auto","Spaardeposito","Belegging","Pensioensparen");
+    private final List<String> LEESMATERIAAL = Arrays.asList("Groene Amsterdammer","Volkskrant","Parool","AD","NRC","Elsevier Weekblad","Oor","Tina","TruckStar","Men's Health");
 
 }
