@@ -3,7 +3,6 @@ package ap.hackathon.augmentedprivacy.generator;
 import ap.hackathon.augmentedprivacy.domain.MutationType;
 import ap.hackathon.augmentedprivacy.domain.Transaction;
 
-import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.*;

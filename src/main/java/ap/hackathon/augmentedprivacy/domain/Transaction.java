@@ -1,10 +1,9 @@
 package ap.hackathon.augmentedprivacy.domain;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.math.BigInteger;
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -14,7 +13,7 @@ public class Transaction {
 
     public static final SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat("y-MM-dd");
     private String description;
-    private BigInteger amount;
+    private BigDecimal amount;
     private Date transactionDate;
     private MutationType mutationType;
 

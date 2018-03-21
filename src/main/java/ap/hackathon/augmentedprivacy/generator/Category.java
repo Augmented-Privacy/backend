@@ -1,6 +1,6 @@
 package ap.hackathon.augmentedprivacy.generator;
 
-import java.math.BigInteger;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -40,9 +40,9 @@ public enum Category {
         return Category.values()[pick];
     }
 
-    BigInteger getAmount() {
+    BigDecimal getAmount() {
         int randomNum = ThreadLocalRandom.current().nextInt(fromCents, toCents + 1);
-        return BigInteger.valueOf(randomNum);
+        return BigDecimal.valueOf(new Double(randomNum)/100);
     }
 
     String getRandomKeyword() {
