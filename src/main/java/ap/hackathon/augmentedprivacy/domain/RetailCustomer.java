@@ -1,14 +1,12 @@
 package ap.hackathon.augmentedprivacy.domain;
 
 import ap.hackathon.augmentedprivacy.generator.TransactionBucketizer;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Data
 public class RetailCustomer {
@@ -34,6 +32,13 @@ public class RetailCustomer {
 
         stringBuilder.append('\n');
         return stringBuilder.toString();
+    }
+
+    public Map<String, BigDecimal> getBucket() {
+        TransactionBucketizer transactionBucketizer = new TransactionBucketizer();
+        transactionBucketizer.init();
+        transactions.forEach(transactionBucketizer::addTransaction);
+        return transactionBucketizer.getBuckets();
     }
 
 }
