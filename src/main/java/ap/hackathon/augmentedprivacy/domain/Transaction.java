@@ -13,7 +13,4 @@ public class Transaction {
     private Date transactionDate;
     private MutationType mutationType;
 
-    private String fromIban;
-    private String destinationIban;
-
 }
