@@ -1,8 +1,12 @@
 package ap.hackathon.augmentedprivacy.generator;
 
+import lombok.Getter;
+
+import java.math.BigInteger;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -27,6 +31,7 @@ public enum Category {
 
     private int fromCents;
     private int toCents;
+    @Getter
     private List<String> keywords;
 
     Category(int low, int to, List<String> strings) {
@@ -42,12 +47,18 @@ public enum Category {
 
     BigDecimal getAmount() {
         int randomNum = ThreadLocalRandom.current().nextInt(fromCents, toCents + 1);
-        return BigDecimal.valueOf(new Double(randomNum)/100);
+        return BigDecimal.valueOf((double) randomNum /100);
     }
 
     String getRandomKeyword() {
         int pick = new Random().nextInt(keywords.size());
         return keywords.get(pick);
+    }
+
+    // Advanced machine learning
+    static Category getCategoryFromDescription(String description) {
+        Optional<Category> first = Arrays.stream(Category.values()).filter(category -> category.getKeywords().contains(description)).findFirst();
+        return first.orElseGet(() -> null);
     }
 
 }

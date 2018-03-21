@@ -1,9 +1,14 @@
 package ap.hackathon.augmentedprivacy.domain;
 
+import ap.hackathon.augmentedprivacy.generator.TransactionBucketizer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Data
 public class RetailCustomer {
@@ -18,14 +23,16 @@ public class RetailCustomer {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(name).append(",");
 
+        TransactionBucketizer transactionBucketizer = new TransactionBucketizer();
+        transactionBucketizer.init();
 
+        transactions.forEach(transactionBucketizer::addTransaction);
 
-        transactions.forEach(transaction -> {
+        Map<String, BigDecimal> buckets = transactionBucketizer.getBuckets();
+        String values = buckets.entrySet().stream().map(a -> a.getValue().toString()).collect(Collectors.joining(","));
+        stringBuilder.append(values);
 
-
-
-            stringBuilder.append(transaction.toString());
-        });
+        stringBuilder.append('\n');
         return stringBuilder.toString();
     }
 
