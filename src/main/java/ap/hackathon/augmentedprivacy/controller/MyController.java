@@ -3,6 +3,7 @@ package ap.hackathon.augmentedprivacy.controller;
 import ap.hackathon.augmentedprivacy.domain.RetailCustomer;
 import ap.hackathon.augmentedprivacy.generator.TransactionGenerator;
 import ap.hackathon.augmentedprivacy.ml.kmeans_26607a20_9e61_407b_bb37_7f529ec5d76d;
+import hex.genmodel.GenModel;
 import hex.genmodel.easy.EasyPredictModelWrapper;
 import hex.genmodel.easy.RowData;
 import hex.genmodel.easy.exception.PredictException;
@@ -22,7 +23,7 @@ public class MyController {
 
     @RequestMapping("/")
     public String index() throws PredictException {
-        hex.genmodel.GenModel rawModel = new kmeans_26607a20_9e61_407b_bb37_7f529ec5d76d();
+        GenModel rawModel = new kmeans_26607a20_9e61_407b_bb37_7f529ec5d76d();
         EasyPredictModelWrapper model = new EasyPredictModelWrapper(rawModel);
 
         RetailCustomer retailCustomer = new RetailCustomer();
@@ -39,7 +40,7 @@ public class MyController {
 
         ClusteringModelPrediction clusteringModelPrediction = model.predictClustering(row);
 
-        return "U zit in bubbel" + clusteringModelPrediction.cluster;
+        return "U zit in bubbel " + clusteringModelPrediction.cluster;
     }
 
 }
