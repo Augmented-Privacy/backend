@@ -6,20 +6,38 @@ import ap.hackathon.augmentedprivacy.domain.Transaction;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class TransactionGenerator {
 
-    public Transaction generateTransaction() {
-        Transaction transaction = new Transaction();
-        Category myCategory = Category.getRandom();
+    public List<Transaction> generate100Transactions() {
+        List<Transaction> transactions = new ArrayList<>();
 
-        transaction.setAmount(myCategory.getAmount());
-        transaction.setDescription(myCategory.getRandomKeyword());
+        Category primaryCategory = Category.getRandom();
+        Category secondaryCategory = Category.getRandom();
+        Category tertiaryCategory = Category.getRandom();
+
+        for (int i = 0; i < 20; i++) {
+            transactions.add(generateTransactionFromCategory(primaryCategory));
+        }
+        for (int i = 0; i < 15; i++) {
+            transactions.add(generateTransactionFromCategory(secondaryCategory));
+        }
+        for (int i = 0; i < 10; i++) {
+            transactions.add(generateTransactionFromCategory(tertiaryCategory));
+        }
+        for (int i = 0; i < 55; i++) {
+            transactions.add(generateTransaction());
+        }
+        return  transactions;
+    }
+
+    public Transaction generateTransactionFromCategory(Category category) {
+        Transaction transaction = new Transaction();
+
+        transaction.setAmount(category.getAmount());
+        transaction.setDescription(category.getRandomKeyword());
 
         long minDay = LocalDate.of(2018, 1, 1).toEpochDay();
         long maxDay = LocalDate.now().toEpochDay();
@@ -31,8 +49,8 @@ public class TransactionGenerator {
         return transaction;
     }
 
-    public static int randBetween(int start, int end) {
-        return start + (int) Math.round(Math.random() * (end - start));
+    public Transaction generateTransaction() {
+      return generateTransactionFromCategory(Category.getRandom());
     }
 
     public enum Category {
@@ -41,7 +59,7 @@ public class TransactionGenerator {
         MODEWINKELS(100, 1_000_000, Arrays.asList("Bomont", "Bonprix", "Bristol", "C&A", "Calvin Klein", "Chasin", "Christine le Duc", "CoolCat", "De Bijenkorf", "Duetz", "H&M", "Hema", "KinderKleding", "Mango", "Miss Etam")),
         TELECOMBEDRIJVEN(250, 9000, Arrays.asList("KPN", "telecom", "telekom", "T-Mobile", "telfort", "youfone", "Hollandsnieuwe", "Ben", "Orange", "Vodafone", "Simpel", "Delta")),
         NUTSBEDRIJVEN(500, 30000, Arrays.asList("Qurrent", "Powerpeers", "Eneco", "Oxxio", "Budget Energie", "Essent", "Nuon", "E.ON", "Engie", "Energie direct")),
-        FAMILIELEDEN(1, 1_000_000, Arrays.asList("tante", "oom", "ome", "nonkel", "Mama", "mamma", "pappa", "papa", "oma", "opa", "neef", "nicht", "")),
+        FAMILIELEDEN(1, 1_000_000, Arrays.asList("tante", "oom", "ome", "nonkel", "Mama", "mamma", "pappa", "papa", "oma", "opa", "neef", "nicht")),
         HUUR(12000, 300000, Arrays.asList("Huur", "Servicekosten huur", "Contributie woningbouwvereniging", "Boeteheffing", "Achterstallige huur", "Rente over achterstallige huur")),
         HYPOTHEEKAFSCHRIJVINGEN(12000, 300000, Arrays.asList("Afschrijving hypotheek", "Premie hypotheek", "Bijdrage VvE", "Extra storting hypotheek", "Extra aflossing hypotheek")),
         BELASTINGEN(3000, 10_000_000, Arrays.asList("Gemeentebelasting", "Hondenbelasting", "Wegenbelasting", "Boete voor te hard rijden", "Inkomstenbelasting", "Kansspelbelasting", "Erfbelasting")),
