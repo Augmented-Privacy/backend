@@ -23,6 +23,7 @@ public class GenerateTest {
             RetailCustomer retailCustomer = new RetailCustomer();
             retailCustomer.setName(RandomString.make(6));
             retailCustomer.setTransactions(transactionGenerator.generate100Transactions());
+
             stringBuilder.append(retailCustomer.toString());
         }
 

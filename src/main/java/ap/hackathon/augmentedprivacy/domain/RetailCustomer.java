@@ -16,8 +16,14 @@ public class RetailCustomer {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(name).append(",");
+
+
+
         transactions.forEach(transaction -> {
-            stringBuilder.append(name).append(",");
+
+
+
             stringBuilder.append(transaction.toString());
         });
         return stringBuilder.toString();
