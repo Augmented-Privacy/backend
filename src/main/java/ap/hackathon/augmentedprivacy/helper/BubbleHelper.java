@@ -75,7 +75,7 @@ public class BubbleHelper {
         return k;
     }
 
-    public static void reverse(double[] input) {
+    private static void reverse(double[] input) {
         int last = input.length - 1;
         int middle = input.length / 2;
         for (int i = 0; i <= middle; i++) {
