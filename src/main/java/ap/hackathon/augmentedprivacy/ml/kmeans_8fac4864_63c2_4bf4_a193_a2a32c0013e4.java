@@ -48,7 +48,7 @@ public class kmeans_8fac4864_63c2_4bf4_a193_a2a32c0013e4 extends GenModel implem
     /* TELECOMBEDRIJVEN */ null
   };
 
-  public double[][]getKMeans() {
+  public static double[][]getKMeans() {
     return kmeans_8fac4864_63c2_4bf4_a193_a2a32c0013e4_CENTERS.VALUES;
   }
 
