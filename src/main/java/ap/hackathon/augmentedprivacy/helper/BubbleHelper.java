@@ -1,4 +1,4 @@
-package ap.hackathon.augmentedprivacy.controller;
+package ap.hackathon.augmentedprivacy.helper;
 
 import ap.hackathon.augmentedprivacy.domain.presentation.Bubble;
 import ap.hackathon.augmentedprivacy.ml.kmeans_8fac4864_63c2_4bf4_a193_a2a32c0013e4;

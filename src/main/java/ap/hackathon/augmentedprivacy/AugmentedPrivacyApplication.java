@@ -2,12 +2,14 @@ package ap.hackathon.augmentedprivacy;
 
 import ap.hackathon.augmentedprivacy.domain.RetailCustomer;
 import ap.hackathon.augmentedprivacy.generator.TransactionGenerator;
+import ap.hackathon.augmentedprivacy.helper.NameHelper;
 import lombok.Getter;
 import net.bytebuddy.utility.RandomString;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @SpringBootApplication
@@ -20,11 +22,11 @@ public class AugmentedPrivacyApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(AugmentedPrivacyApplication.class, args);
-
+        List<String> names = NameHelper.getNames();
         // Generate customers
-        for (int i = 0; i < 100; i++) {
+        for (String name : names  ) {
             RetailCustomer retailCustomer = new RetailCustomer();
-            retailCustomer.setName(RandomString.make(6));
+            retailCustomer.setName(name);
             retailCustomer.setTransactions(transactionGenerator.generate100Transactions());
             customers.put(retailCustomer.getName(), retailCustomer);
         }

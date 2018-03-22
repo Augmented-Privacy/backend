@@ -1,6 +1,7 @@
 package ap.hackathon.augmentedprivacy.controller;
 
 import ap.hackathon.augmentedprivacy.domain.presentation.Bubble;
+import ap.hackathon.augmentedprivacy.helper.BubbleHelper;
 import hex.genmodel.easy.exception.PredictException;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

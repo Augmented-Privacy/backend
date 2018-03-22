@@ -1,10 +1,9 @@
 package ap.hackathon.augmentedprivacy.controller;
 
 import ap.hackathon.augmentedprivacy.AugmentedPrivacyApplication;
-import ap.hackathon.augmentedprivacy.domain.presentation.Bubble;
 import ap.hackathon.augmentedprivacy.domain.RetailCustomer;
 import ap.hackathon.augmentedprivacy.domain.presentation.Customer;
-import ap.hackathon.augmentedprivacy.ml.kmeans_26607a20_9e61_407b_bb37_7f529ec5d76d;
+import ap.hackathon.augmentedprivacy.helper.BubbleHelper;
 import ap.hackathon.augmentedprivacy.ml.kmeans_8fac4864_63c2_4bf4_a193_a2a32c0013e4;
 import hex.genmodel.GenModel;
 import hex.genmodel.easy.EasyPredictModelWrapper;

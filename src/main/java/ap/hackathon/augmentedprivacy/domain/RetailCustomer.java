@@ -13,7 +13,6 @@ public class RetailCustomer {
 
     private String name;
     private Account debitAccount;
-    private Product mortgage;
     private List<Transaction> transactions;
 
     @Override
