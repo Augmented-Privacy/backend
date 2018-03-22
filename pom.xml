@@ -50,6 +50,11 @@
             <groupId>net.bytebuddy</groupId>
             <artifactId>byte-buddy</artifactId>
         </dependency>
+		<dependency>
+			<groupId>com.kennycason</groupId>
+			<artifactId>kumo-core</artifactId>
+			<version>1.13</version>
+		</dependency>
     </dependencies>
 
 	<build>
