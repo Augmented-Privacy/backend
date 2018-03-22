@@ -48,6 +48,10 @@ public class kmeans_8fac4864_63c2_4bf4_a193_a2a32c0013e4 extends GenModel implem
     /* TELECOMBEDRIJVEN */ null
   };
 
+  public double[][]getKMeans() {
+    return kmeans_8fac4864_63c2_4bf4_a193_a2a32c0013e4_CENTERS.VALUES;
+  }
+
   public kmeans_8fac4864_63c2_4bf4_a193_a2a32c0013e4() { super(NAMES,DOMAINS,null); }
   public String getUUID() { return Long.toString(-7384670716645938832L); }
 
