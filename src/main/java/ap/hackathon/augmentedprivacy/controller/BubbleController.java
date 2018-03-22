@@ -6,6 +6,7 @@ import ap.hackathon.augmentedprivacy.domain.presentation.Customer;
 import ap.hackathon.augmentedprivacy.helper.BubbleHelper;
 import ap.hackathon.augmentedprivacy.helper.CustomerHelper;
 import hex.genmodel.easy.exception.PredictException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,7 @@ import java.util.*;
 public class BubbleController {
 
     @RequestMapping("/bubbles")
+    @CrossOrigin
     public List<Bubble> bubbles() throws PredictException {
         List<Bubble> bubbles = new ArrayList<>();
         for (int i = 0; i < 16; i++) {
@@ -25,11 +27,13 @@ public class BubbleController {
     }
 
     @RequestMapping("/bubbles/{id}")
+    @CrossOrigin
     public Bubble bubble(@PathVariable int id) throws PredictException {
         return BubbleHelper.getBubble(id);
     }
 
     @RequestMapping("/bubbles/keywords/{keyword}")
+    @CrossOrigin
     public List<Bubble> bubble(@PathVariable String keyword) throws PredictException {
         List<Bubble> topBubblesByKeyword = BubbleHelper.getTopBubblesByKeyword(keyword);
         Map<Integer, Bubble> bubblez = new HashMap<>();
