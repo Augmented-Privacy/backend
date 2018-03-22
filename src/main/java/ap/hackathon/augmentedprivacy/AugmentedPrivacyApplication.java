@@ -1,10 +1,12 @@
 package ap.hackathon.augmentedprivacy;
 
 import ap.hackathon.augmentedprivacy.domain.RetailCustomer;
+import ap.hackathon.augmentedprivacy.domain.presentation.Bubble;
+import ap.hackathon.augmentedprivacy.domain.presentation.Customer;
 import ap.hackathon.augmentedprivacy.generator.TransactionGenerator;
+import ap.hackathon.augmentedprivacy.helper.CustomerHelper;
 import ap.hackathon.augmentedprivacy.helper.NameHelper;
 import lombok.Getter;
-import net.bytebuddy.utility.RandomString;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -18,17 +20,17 @@ public class AugmentedPrivacyApplication {
     private static TransactionGenerator transactionGenerator = new TransactionGenerator();
 
     @Getter
-    private static Map<String, RetailCustomer> customers = new HashMap<>();
+    private static Map<String, RetailCustomer> retailCustomers = new HashMap<>();
 
     public static void main(String[] args) {
         SpringApplication.run(AugmentedPrivacyApplication.class, args);
         List<String> names = NameHelper.getNames();
-        // Generate customers
+        // Generate retailCustomers
         for (String name : names  ) {
             RetailCustomer retailCustomer = new RetailCustomer();
             retailCustomer.setName(name);
             retailCustomer.setTransactions(transactionGenerator.generate100Transactions());
-            customers.put(retailCustomer.getName(), retailCustomer);
+            retailCustomers.put(retailCustomer.getName(), retailCustomer);
         }
     }
 

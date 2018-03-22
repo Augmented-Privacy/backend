@@ -10,6 +10,7 @@ import java.util.Map;
 public class Bubble {
 
     private int id;
+    private int noCustomers;
     private Map<String, Double> importance;
 
 }
