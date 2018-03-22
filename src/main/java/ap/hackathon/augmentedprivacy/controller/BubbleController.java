@@ -6,14 +6,13 @@ import ap.hackathon.augmentedprivacy.domain.presentation.Customer;
 import ap.hackathon.augmentedprivacy.generator.WordcloudGenerator;
 import ap.hackathon.augmentedprivacy.helper.BubbleHelper;
 import ap.hackathon.augmentedprivacy.helper.CustomerHelper;
-import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream;
 import hex.genmodel.easy.exception.PredictException;
-import jdk.nashorn.internal.runtime.Context;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StreamUtils;
@@ -29,6 +28,9 @@ import java.util.*;
 
 @RestController
 public class BubbleController {
+
+    @Autowired
+    private ResourceLoader resourceLoader;
 
     @RequestMapping("/bubbles")
     @CrossOrigin
@@ -48,7 +50,7 @@ public class BubbleController {
 
     @RequestMapping(value="/bubbles/wordcloud/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
     @CrossOrigin
-    public ResponseEntity<byte[]> bubbleWc(@PathVariable int id) throws PredictException, IOException {
+    public ResponseEntity<byte[]> bubbleWc(@PathVariable int id) throws PredictException, IOException, InterruptedException {
 
 
         Bubble bubble = BubbleHelper.getBubble(id);
@@ -56,13 +58,10 @@ public class BubbleController {
 
         WordcloudGenerator wordcloudGenerator = new WordcloudGenerator();
 
-        wordcloudGenerator.generate(importance, id);
-
-        String format = String.format("%d.png", id);
-        Resource resource = new ClassPathResource(format);
+//        wordcloudGenerator.generate(importance, id);
 
         try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-             InputStream input = resource.getInputStream();
+             InputStream input = resourceLoader.getClassLoader().getResourceAsStream(String.format("%d.png", id));
         ) {
             org.apache.commons.io.IOUtils.copy(input, outputStream);
             return ResponseEntity.ok(outputStream.toByteArray());
