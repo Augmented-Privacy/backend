@@ -62,7 +62,7 @@ public class GenerateWCTest {
         buckets.put("TELECOMBEDRIJVEN", BigDecimal.valueOf(-0.0664));
 
 
-        wordcloudGenerator.generate(buckets);
+       // wordcloudGenerator.generate(buckets);
         System.out.println("yes");
 
     }
