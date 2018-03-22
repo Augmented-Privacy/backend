@@ -9,6 +9,7 @@ import java.util.Map;
 @Data
 public class Bubble {
 
+    private int id;
     private Map<String, Double> importance;
 
 }

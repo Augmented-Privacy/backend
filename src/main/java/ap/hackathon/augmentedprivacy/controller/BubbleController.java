@@ -27,4 +27,9 @@ public class BubbleController {
         return BubbleHelper.getBubble(id);
     }
 
+    @RequestMapping("/bubbles/keywords/{keyword}")
+    public List<Bubble> bubble(@PathVariable String keyword) throws PredictException {
+        return BubbleHelper.getTopBubblesByKeyword(keyword);
+    }
+
 }
