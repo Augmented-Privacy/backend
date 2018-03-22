@@ -48,6 +48,10 @@ public class kmeans_26607a20_9e61_407b_bb37_7f529ec5d76d extends GenModel implem
     /* TELECOMBEDRIJVEN */ null
   };
 
+  public static double[] getMeans() {
+    return kmeans_26607a20_9e61_407b_bb37_7f529ec5d76d_MEANS.VALUES;
+  }
+
   public kmeans_26607a20_9e61_407b_bb37_7f529ec5d76d() { super(NAMES,DOMAINS,null); }
   public String getUUID() { return Long.toString(504873017842791536L); }
 
@@ -104,6 +108,9 @@ class NamesHolder_kmeans_26607a20_9e61_407b_bb37_7f529ec5d76d implements java.io
     }
   }
 }
+
+
+
 // Column means of training data
 class kmeans_26607a20_9e61_407b_bb37_7f529ec5d76d_MEANS implements java.io.Serializable {
   public static final double[] VALUES = new double[16];
