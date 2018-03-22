@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 public class RetailCustomer {
 
     private String name;
-    private Account debitAccount;
     private List<Transaction> transactions;
 
     @Override
